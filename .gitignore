@@ -1,0 +1,33 @@
+# Dependencias y archivos temporales de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+venv/
+env/
+.venv/
+
+# Dependencias de Node.js (Frontend)
+node_modules/
+dist/
+build/
+.npm/
+
+# Base de datos y archivos de usuario (¡Súper importante!)
+data/
+backend/data/
+*.db
+*.sqlite3
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Logs y debug
+*.log
+debug_text.txt
+
+# Carpetas del asistente
+brain/
+.gemini/
