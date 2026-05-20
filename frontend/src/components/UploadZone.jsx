@@ -87,7 +87,7 @@ const UploadZone = ({ onUploadSuccess, subjects = [], onSubjectCreated, apiBase 
                 </h3>
                 
                 {!isCreatingSubject ? (
-                    <div className="flex gap-3">
+                    <div className="flex flex-col sm:flex-row gap-3">
                         <select 
                             className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-slate-200 outline-none focus:border-indigo-500 transition-colors"
                             value={selectedSubjectId}
@@ -100,13 +100,13 @@ const UploadZone = ({ onUploadSuccess, subjects = [], onSubjectCreated, apiBase 
                         </select>
                         <button 
                             onClick={() => setIsCreatingSubject(true)}
-                            className="btn-secondary whitespace-nowrap px-4 bg-white/10 hover:bg-white/20 rounded-xl transition-colors font-medium text-sm flex items-center"
+                            className="btn-secondary sm:w-auto w-full justify-center whitespace-nowrap px-4 py-3 bg-white/10 hover:bg-white/20 rounded-xl transition-colors font-medium text-sm flex items-center"
                         >
                             <Plus className="w-4 h-4 mr-1 inline" /> Nueva
                         </button>
                     </div>
                 ) : (
-                    <div className="flex gap-3">
+                    <div className="flex flex-col sm:flex-row gap-3">
                         <input 
                             type="text" 
                             placeholder="Nombre de la nueva asignatura..."
@@ -114,19 +114,21 @@ const UploadZone = ({ onUploadSuccess, subjects = [], onSubjectCreated, apiBase 
                             value={newSubjectName}
                             onChange={(e) => setNewSubjectName(e.target.value)}
                         />
-                        <button 
-                            onClick={handleCreateSubject}
-                            disabled={!newSubjectName.trim()}
-                            className="btn-primary whitespace-nowrap px-4 bg-indigo-600 hover:bg-indigo-500 rounded-xl transition-colors font-medium text-sm text-white disabled:opacity-50"
-                        >
-                            Guardar
-                        </button>
-                        <button 
-                            onClick={() => setIsCreatingSubject(false)}
-                            className="btn-secondary whitespace-nowrap px-4 bg-white/10 hover:bg-white/20 rounded-xl transition-colors font-medium text-sm"
-                        >
-                            Cancelar
-                        </button>
+                        <div className="flex gap-2">
+                            <button 
+                                onClick={handleCreateSubject}
+                                disabled={!newSubjectName.trim()}
+                                className="btn-primary flex-1 sm:flex-none justify-center whitespace-nowrap px-4 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-xl transition-colors font-medium text-sm text-white disabled:opacity-50"
+                            >
+                                Guardar
+                            </button>
+                            <button 
+                                onClick={() => setIsCreatingSubject(false)}
+                                className="btn-secondary flex-1 sm:flex-none justify-center whitespace-nowrap px-4 py-3 bg-white/10 hover:bg-white/20 rounded-xl transition-colors font-medium text-sm"
+                            >
+                                Cancelar
+                            </button>
+                        </div>
                     </div>
                 )}
             </div>
